@@ -166,18 +166,19 @@ class Assignment_Two_Skeleton extends Scene_Component {
 
         let m = Mat4.identity();
 
-        //do the animation. UNCOMMENT LINE BELOW TO DISABLE ANIMATION
+        //do the animation. COMMENT OUT LINE BELOW TO DISABLE ANIMATION
         this.animation(graphics_state, t);
 
         //draw ground
         this.draw_ground(graphics_state);
 
         //draw the buildings
-        this.draw_large_castle_section(graphics_state, m);
+        let T = Mat4.translation(Vec.of(0, 10, 0));        
+        this.draw_large_castle_section(graphics_state, m.times(T));
 
         //torus in the front
         let S = Mat4.scale(Vec.of(8, 8, 8));
-        let T = Mat4.translation(Vec.of(0, -15, 1000));
+        T = Mat4.translation(Vec.of(0, 0, 1000));
         this.draw_torus(graphics_state, m.times(T).times(S));
     }
 
@@ -259,14 +260,15 @@ class Assignment_Two_Skeleton extends Scene_Component {
         //middle castle
         this.draw_house_with_barriers(graphics_state, m.times(T).times(S));
         
-        T = Mat4.translation(Vec.of(0, 150, 0));
+        S = Mat4.scale(Vec.of(1.49, 1.49, 1.49));       
+        T = Mat4.translation(Vec.of(0, 227, 0));
         this.draw_two_story_house_with_pillars(graphics_state, m.times(T).times(S));
 
         S = Mat4.scale(Vec.of(1.5, 1.5, 1.5));
-        T = Mat4.translation(Vec.of(460, 0, 0));
+        T = Mat4.translation(Vec.of(481.5, 0, 0));
         this.draw_cube_house(graphics_state, m.times(T).times(S));
         
-        T = Mat4.translation(Vec.of(-460, 0, 0));
+        T = Mat4.translation(Vec.of(-481.5, 0, 0));
         this.draw_cube_house(graphics_state, m.times(T).times(S));
 
         //corner of map buildings
@@ -286,7 +288,7 @@ class Assignment_Two_Skeleton extends Scene_Component {
 
         
     
-        //house with barriers next to middle castle
+        //house with bdarriers next to middle castle
         T = Mat4.translation(Vec.of(600, 0, 500));
         S = Mat4.scale(Vec.of(1, 1, 1));
         let R = Mat4.rotation(Math.PI/2, Vec.of(0, -1, 0));
@@ -341,18 +343,18 @@ class Assignment_Two_Skeleton extends Scene_Component {
         this.draw_stacked_pillar(graphics_state, m.times(T).times(S));
 
         //behind the castle in between marble fixtures
-        T = Mat4.translation(Vec.of(-650, 0, -450));
+        T = Mat4.translation(Vec.of(-680, 0, -450));
         S = Mat4.scale(Vec.of(1,1,1));
         this.draw_house_with_barriers(graphics_state, m.times(T).times(S));
         
-        T = Mat4.translation(Vec.of(-650, 150, -450));
+        T = Mat4.translation(Vec.of(-680, 153, -450));
         this.draw_two_story_house_without_pillars(graphics_state, m.times(T).times(S));
 
-        T = Mat4.translation(Vec.of(650, 0, -450));
+        T = Mat4.translation(Vec.of(680, 0, -450));
         S = Mat4.scale(Vec.of(1,1,1));
         this.draw_house_with_barriers(graphics_state, m.times(T).times(S));
         
-        T = Mat4.translation(Vec.of(650, 150, -450));
+        T = Mat4.translation(Vec.of(680, 153, -450));
         this.draw_two_story_house_without_pillars(graphics_state, m.times(T).times(S));
 
         //mobius strips on side
@@ -513,15 +515,15 @@ class Assignment_Two_Skeleton extends Scene_Component {
         this.draw_closed_cylinder(graphics_state, m.times(T).times(S).times(R2), this.ucla_material);
         
         S = Mat4.scale(Vec.of(25,20,23));
-        T = Mat4.translation(Vec.of(0, 95.5, 0));
+        T = Mat4.translation(Vec.of(0, 103, 0));
         this.draw_closed_cylinder(graphics_state,m.times(T.times(S)), this.brick_normal_material);
         
         let R = Mat4.rotation(Math.PI/2, Vec.of(-1, 0, 0));
         S = Mat4.scale(Vec.of(27,70,27))
-        T = Mat4.translation(Vec.of(0,115.8,0));
+        T = Mat4.translation(Vec.of(0,123,0));
         this.shapes.cone.draw(graphics_state,m.times(T.times(S.times(R))),this.plastic.override({color:this.grey}));
         
-        T = Mat4.translation(Vec.of(-7, 95.1, 26));
+        T = Mat4.translation(Vec.of(-7, 102, 26));
         S = Mat4.scale(Vec.of(.5,.5,.5));
         this.draw_square_window(graphics_state, m.times(T.times(S)), this.plastic.override({color:this.yellow}));
 
@@ -575,11 +577,11 @@ class Assignment_Two_Skeleton extends Scene_Component {
         let T = Mat4.translation(Vec.of(0,0,0));
         this.draw_cube_house(graphics_state, m.times(T).times(S));
         
-        T = Mat4.translation(Vec.of(-160, 20, 0));
+        T = Mat4.translation(Vec.of(-160.5, 20, 0));
         S = Mat4.scale(Vec.of(2, 2, 2));
         this.draw_rectangle_with_cones(graphics_state, m.times(T).times(S));
         
-        T = Mat4.translation(Vec.of(160, 20, 0));
+        T = Mat4.translation(Vec.of(160.5, 20, 0));
         this.draw_rectangle_with_cones(graphics_state, m.times(T).times(S));  
         }
 
@@ -588,7 +590,7 @@ class Assignment_Two_Skeleton extends Scene_Component {
         let T = Mat4.translation(Vec.of(0,0,0));
         this.draw_cube_house(graphics_state, m.times(T).times(S));
         
-        T = Mat4.translation(Vec.of(0, 150, 0));
+        T = Mat4.translation(Vec.of(0, 150.5, 0));
         this.draw_cube_house(graphics_state, m.times(T).times(S));
         
         let Tx = -100;
@@ -612,7 +614,7 @@ class Assignment_Two_Skeleton extends Scene_Component {
         let T = Mat4.translation(Vec.of(0,0,0));
         this.draw_cube_house(graphics_state, m.times(T).times(S));
         
-        T = Mat4.translation(Vec.of(0, 150, 0));
+        T = Mat4.translation(Vec.of(0, 154, 0));
         this.draw_cube_house(graphics_state, m.times(T).times(S));
        
 
