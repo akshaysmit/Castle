@@ -1,0 +1,25 @@
+CS174A
+PROJECT README
+
+Akshay Smit (804-641-231)
+Osman Akar (004-649-066)
+Sai Padhy
+
+Important things to note:
+
+1. There is a small delay at the beginning of the animation to allow the scene to fully load
+2. The scene begins with the animation and during this time the camera cannot be manually moved
+3. After the animation is finished, the camera can be moved using the skeleton code controls
+4. In order to DISABLE THE ANIMATION, comment out line 170 in main-scene.js, this line is in the
+   display function
+5. Our advanced feature was NORMAL MAPPING. Our grey brick texture that dominates the buildings is
+   normally mapped. The effect is very obvious when looking at the front of the scene, where the
+   light is falling on the buildings. The realistic bumpiness is pretty cool
+6. We also used normal mapping for some red brick textures on cylinders and a UCLA Bruins logo
+   on some of the cylinders located at the top of our scene
+7. We have many, many, many parametric surfaces. We have a TORUS at the front of the scene, two grey
+   MOBIUS STRIPS on the sides, and our domes are Bezier curves with 4 control points, rotated around an axis
+   In our code, there is a function to draw a Bezier curve with 4 control points and rotate it, called
+   Bezier4_rot. The Mobius Strip is actually a bilinear patch.
+8. We have satisfied all requirements, including the advanced feature (normal mapping). We modified the
+   shaders to implement normal mapping.
